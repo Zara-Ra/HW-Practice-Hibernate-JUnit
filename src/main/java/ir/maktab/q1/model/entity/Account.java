@@ -1,11 +1,25 @@
 package ir.maktab.q1.model.entity;
 
-import java.time.LocalDate;
-import java.util.Calendar;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+@Getter
+@Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
 public abstract class Account {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int Id;
     String accountNumber;
     String creditCardNumber; //todo validate 16 digit
     LocalDate openingDate;
-    CreditCard creditCard;
+    double credit;
+    int cvv2;//todo validate 3 or 4 digit/ create it randomly
+    LocalDate expiryDate;
 }
