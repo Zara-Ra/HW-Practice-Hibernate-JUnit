@@ -2,6 +2,7 @@ package ir.maktab.q1.model.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
@@ -9,7 +10,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 @Getter
 @Setter
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PROTECTED)
 @Entity
 public abstract class Account {
 
