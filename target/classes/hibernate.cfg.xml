@@ -17,9 +17,11 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping class="ir.maktab.q1.model.entity.CurrentAccount"></mapping>
         <mapping class="ir.maktab.q1.model.entity.Account"></mapping>
+        <mapping class="ir.maktab.q1.model.entity.CurrentAccount"></mapping>
         <mapping class="ir.maktab.q1.model.entity.LongTermAccount"></mapping>
+        <mapping class="ir.maktab.q1.model.entity.ShortTermAccount"></mapping>
+        <mapping class="ir.maktab.q1.model.entity.NoProfitAccount"></mapping>
 
     </session-factory>
 </hibernate-configuration>

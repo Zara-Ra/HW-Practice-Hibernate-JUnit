@@ -11,7 +11,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        IRepository currentAccountIRepository = new RepositoryImpl<>();
+        LocalDate openingDate = LocalDate.parse("2022-08-12");
+        LocalDate today = LocalDate.now();
+
+        int diff = LocalDate.now().compareTo(openingDate);
+        int timeInAccount = diff/365;
+        System.out.println(today + " "+openingDate+ " "+diff);
+        System.out.println(timeInAccount);
+        /*IRepository currentAccountIRepository = new RepositoryImpl<>();
         LocalDate openingDate = LocalDate.now();
         CurrentAccount account = new CurrentAccount("1234","6362141059922787",
                 openingDate,1000,1234,openingDate,"CheckBook1234");
@@ -28,6 +35,6 @@ public class Main {
         longTermAccountIRepository.save(account1);
 
         List allAccounts = currentAccountIRepository.findAll();
-        System.out.println(allAccounts.size());
+        System.out.println(allAccounts.size());*/
     }
 }
