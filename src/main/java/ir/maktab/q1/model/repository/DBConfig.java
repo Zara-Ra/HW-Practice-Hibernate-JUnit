@@ -9,7 +9,7 @@ public class DBConfig {
     public static DBConfig getInstance(){
         return instance;
     }
-    public static SessionFactory getSessionFactory() {
+    public SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration().configure();
         return configuration.buildSessionFactory();
     }
