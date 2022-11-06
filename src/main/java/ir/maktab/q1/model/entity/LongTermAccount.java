@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@ToString(callSuper = true)
 @Entity
 public class LongTermAccount extends Account{
     private double annualProfit;

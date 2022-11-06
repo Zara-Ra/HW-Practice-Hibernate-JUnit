@@ -15,7 +15,8 @@ import java.time.LocalDate;
 public abstract class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) @ToString.Exclude
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ToString.Exclude
     int Id;
     String accountNumber;
     String creditCardNumber; //todo validate 16 digit

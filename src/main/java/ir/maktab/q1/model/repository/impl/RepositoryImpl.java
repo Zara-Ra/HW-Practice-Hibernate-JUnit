@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 public class RepositoryImpl<T extends Account> implements IRepository<T> {
     public static SessionFactory sessionFactory = DBConfig.getInstance().getSessionFactory();
 
@@ -28,6 +30,14 @@ public class RepositoryImpl<T extends Account> implements IRepository<T> {
     }
 
     @Override
+    public List<T> findAll() {
+        Session session = sessionFactory.openSession();
+        List allAccounts = session.createQuery("From Account ").list();
+        session.close();
+        return allAccounts;
+    }
+
+    @Override
     public void update(int id, double credit) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -40,6 +50,11 @@ public class RepositoryImpl<T extends Account> implements IRepository<T> {
 
     @Override
     public void delete(int id) {
-
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        T account = (T) session.get(Account.class,id);
+        session.delete(account);
+        transaction.commit();
+        session.close();
     }
 }
