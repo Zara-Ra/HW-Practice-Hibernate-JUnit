@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface IService<T extends Account> {
     void createNewAccount(T account);
-    void deleteAccount(T account);
+    void deleteAccount(int id);
     T findAccountById(int id);
     List<T> displayAllAccounts();
-    void withdraw(T account);
-    void deposit(T account);
+    void withdraw(T account,double amount);
+    void deposit(T account,double amount);
 }
