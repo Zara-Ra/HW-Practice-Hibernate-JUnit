@@ -1,11 +1,8 @@
 package ir.maktab.q1.service.impl;
 
 import ir.maktab.q1.model.entity.LongTermAccount;
-import ir.maktab.q1.service.AbstractService;
 
-import java.time.LocalDate;
-
-public class LongTermAccountServiceImpl extends AbstractService<LongTermAccount> {
+public class LongTermAccountServiceImpl extends ServiceImpl<LongTermAccount> {
     @Override
     public void withdraw(LongTermAccount account, double amount) {
         if(!account.withdrawPossible())

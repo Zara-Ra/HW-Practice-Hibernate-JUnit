@@ -1,7 +1,6 @@
-package ir.maktab.q1.service;
+package ir.maktab.q1.service.impl;
 
 import ir.maktab.q1.model.entity.Account;
-import ir.maktab.q1.model.entity.CurrentAccount;
 import ir.maktab.q1.model.repository.IRepository;
 import ir.maktab.q1.model.repository.impl.RepositoryImpl;
 import ir.maktab.q1.service.IService;
@@ -11,9 +10,20 @@ import lombok.experimental.FieldDefaults;
 import java.util.List;
 
 @FieldDefaults(level = AccessLevel.PROTECTED)
-public abstract class AbstractService<T extends Account> implements IService<T> {
+public class ServiceImpl<T extends Account> implements IService<T> {
     IRepository<T> repository = new RepositoryImpl<>();
 
+    @Override
+    public void withdraw(T account,double amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Sorry, you can not withdraw a negative amount");
+        }
+        if (amount > account.getCredit()) {
+            throw new RuntimeException("Your balance is not enough");
+        }
+        account.setCredit(account.getCredit() - amount);
+        repository.update(account.getId(),account.getCredit());
+    }
     @Override
     public void createNewAccount(T account) {
         //todo validations
