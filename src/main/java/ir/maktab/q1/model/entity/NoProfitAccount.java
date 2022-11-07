@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @Entity
 public class NoProfitAccount extends Account{
     public NoProfitAccount(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, LocalDate expiryDate) {

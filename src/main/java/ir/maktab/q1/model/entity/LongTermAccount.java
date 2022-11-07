@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @Entity
 public class LongTermAccount extends Account{
     private double annualProfit;

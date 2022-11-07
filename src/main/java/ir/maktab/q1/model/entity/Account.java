@@ -13,12 +13,14 @@ import java.util.Random;
 @FieldDefaults(level = AccessLevel.PROTECTED)
 @Inheritance(strategy = InheritanceType.JOINED)
 @ToString
+@EqualsAndHashCode
 @Entity
 public abstract class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     int Id;
     String accountNumber;
     String creditCardNumber; //todo validate 16 digit
