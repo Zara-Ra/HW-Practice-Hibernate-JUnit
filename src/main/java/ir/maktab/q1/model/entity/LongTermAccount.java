@@ -16,8 +16,8 @@ public class LongTermAccount extends Account{
     private double annualProfit;
     int longTermPeriod;
 
-    public LongTermAccount(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, int cvv2, LocalDate expiryDate, double annualProfit) {
-        super(accountNumber, creditCardNumber, openingDate, credit, cvv2, expiryDate);
+    public LongTermAccount(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, LocalDate expiryDate, double annualProfit) {
+        super(accountNumber, creditCardNumber, openingDate, credit, expiryDate);
         this.annualProfit = annualProfit;
         this.longTermPeriod = 5;
     }

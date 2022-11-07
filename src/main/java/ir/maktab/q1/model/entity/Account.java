@@ -5,6 +5,8 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Random;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -22,15 +24,16 @@ public abstract class Account {
     String creditCardNumber; //todo validate 16 digit
     LocalDate openingDate;
     double credit;
-    int cvv2;//todo validate 3 or 4 digit/ create it randomly
+    int cvv2;
     LocalDate expiryDate;
 
-    public Account(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, int cvv2, LocalDate expiryDate) {
+    public Account(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, LocalDate expiryDate) {
         this.accountNumber = accountNumber;
         this.creditCardNumber = creditCardNumber;
         this.openingDate = openingDate;
         this.credit = credit;
-        this.cvv2 = cvv2;
         this.expiryDate = expiryDate;
+        Random random = new Random();
+        this.cvv2 = random.nextInt(100,9999);
     }
 }

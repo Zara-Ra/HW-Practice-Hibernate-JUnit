@@ -15,8 +15,9 @@ import java.time.LocalDate;
 public class CurrentAccount extends Account{
     private String checkbook;
 
-    public CurrentAccount( String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, int cvv2, LocalDate expiryDate, String checkbook) {
-        super(accountNumber, creditCardNumber, openingDate, credit, cvv2, expiryDate);
+    public CurrentAccount( String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, LocalDate expiryDate, String checkbook) {
+        super(accountNumber, creditCardNumber, openingDate, credit, expiryDate);
         this.checkbook = checkbook;
     }
+
 }

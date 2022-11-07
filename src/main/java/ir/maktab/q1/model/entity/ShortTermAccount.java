@@ -15,8 +15,8 @@ import java.time.LocalDate;
 public class ShortTermAccount extends Account{
     private double profit;
 
-    public ShortTermAccount(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, int cvv2, LocalDate expiryDate, double profit) {
-        super(accountNumber, creditCardNumber, openingDate, credit, cvv2, expiryDate);
+    public ShortTermAccount(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, LocalDate expiryDate, double profit) {
+        super(accountNumber, creditCardNumber, openingDate, credit, expiryDate);
         this.profit = profit;
     }
 }
