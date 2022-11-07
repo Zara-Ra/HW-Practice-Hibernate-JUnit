@@ -16,18 +16,6 @@ public class ServiceImpl<T extends Account> implements IService<T> {
     IRepository<T> repository = new RepositoryImpl<>();
 
     @Override
-    public void withdraw(T account, double amount) {
-        if (amount < 0) {
-            throw new IllegalArgumentException("Sorry, you can not withdraw a negative amount");
-        }
-        if (amount > account.getCredit()) {
-            throw new RuntimeException("Your balance is not enough");
-        }
-        account.setCredit(account.getCredit() - amount);
-        repository.update(account.getId(), account.getCredit());
-    }
-
-    @Override
     public void createNewAccount(T account) {
         AccountValidation.validCardNumber(account.getCreditCardNumber());
         repository.save(account);
@@ -46,6 +34,18 @@ public class ServiceImpl<T extends Account> implements IService<T> {
     @Override
     public List displayAllAccounts() {
         return repository.findAll();
+    }
+
+    @Override
+    public void withdraw(T account, double amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Sorry, you can not withdraw a negative amount");
+        }
+        if (amount > account.getCredit()) {
+            throw new RuntimeException("Your balance is not enough");
+        }
+        account.setCredit(account.getCredit() - amount);
+        repository.update(account.getId(), account.getCredit());
     }
 
     @Override

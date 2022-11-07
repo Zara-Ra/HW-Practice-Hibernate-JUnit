@@ -1,4 +1,4 @@
-package repository.test;
+package q1.test.repository;
 
 import ir.maktab.q1.model.entity.*;
 import ir.maktab.q1.model.repository.IRepository;
