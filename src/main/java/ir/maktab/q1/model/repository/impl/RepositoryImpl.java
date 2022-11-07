@@ -24,7 +24,7 @@ public class RepositoryImpl<T extends Account> implements IRepository<T> {
     @Override
     public T findById(int id) {
         Session session = sessionFactory.openSession();
-        T account = (T) session.get(Account.class,id);
+        T account = (T) session.get(Account.class, id);
         session.close();
         return account;
     }
@@ -41,7 +41,7 @@ public class RepositoryImpl<T extends Account> implements IRepository<T> {
     public void update(int id, double credit) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        T account = (T) session.get(Account.class,id);
+        T account = (T) session.get(Account.class, id);
         account.setCredit(credit);
         session.update(account);
         transaction.commit();
@@ -52,7 +52,7 @@ public class RepositoryImpl<T extends Account> implements IRepository<T> {
     public void delete(int id) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        T account = (T) session.get(Account.class,id);
+        T account = (T) session.get(Account.class, id);
         session.delete(account);
         transaction.commit();
         session.close();

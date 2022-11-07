@@ -36,6 +36,6 @@ public abstract class Account {
         this.credit = credit;
         this.expiryDate = expiryDate;
         Random random = new Random();
-        this.cvv2 = random.nextInt(100,9999);
+        this.cvv2 = random.nextInt(100, 9999);
     }
 }

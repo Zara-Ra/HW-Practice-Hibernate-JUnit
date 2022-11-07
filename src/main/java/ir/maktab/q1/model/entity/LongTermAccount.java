@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class LongTermAccount extends Account{
+public class LongTermAccount extends Account {
     private double annualProfit;
     int longTermPeriod;
 
@@ -25,8 +25,6 @@ public class LongTermAccount extends Account{
 
     public boolean withdrawPossible() {
         LocalDate today = LocalDate.now();
-        if(today.getYear() - openingDate.getYear() >= longTermPeriod)
-            return true;
-        return false;
+        return today.getYear() - openingDate.getYear() >= longTermPeriod;
     }
 }

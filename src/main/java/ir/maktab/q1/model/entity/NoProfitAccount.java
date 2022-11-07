@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class NoProfitAccount extends Account{
+public class NoProfitAccount extends Account {
     public NoProfitAccount(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, LocalDate expiryDate) {
         super(accountNumber, creditCardNumber, openingDate, credit, expiryDate);
     }

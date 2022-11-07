@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RepoTest {
     private static IRepository repository;
-    private static Account[] accounts = new Account[5];
+    private static final Account[] accounts = new Account[5];
 
     @BeforeAll
     static void setRepository() {

@@ -7,9 +7,14 @@ import java.util.List;
 
 public interface IService<T extends Account> {
     void createNewAccount(T account) throws ValidationException;
+
     void deleteAccount(int id);
+
     T findAccountById(int id);
+
     List<T> displayAllAccounts();
-    void withdraw(T account,double amount);
-    void deposit(T account,double amount);
+
+    void withdraw(T account, double amount);
+
+    void deposit(T account, double amount);
 }

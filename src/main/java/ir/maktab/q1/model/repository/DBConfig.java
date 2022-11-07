@@ -5,10 +5,14 @@ import org.hibernate.cfg.Configuration;
 
 public class DBConfig {
     private static final DBConfig instance = new DBConfig();
-    private DBConfig(){}
-    public static DBConfig getInstance(){
+
+    private DBConfig() {
+    }
+
+    public static DBConfig getInstance() {
         return instance;
     }
+
     public SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration().configure();
         return configuration.buildSessionFactory();

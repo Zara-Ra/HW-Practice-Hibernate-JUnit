@@ -4,7 +4,6 @@ import ir.maktab.q1.model.entity.Account;
 import ir.maktab.q1.model.repository.IRepository;
 import ir.maktab.q1.model.repository.impl.RepositoryImpl;
 import ir.maktab.q1.service.IService;
-import ir.maktab.q1.util.exceptions.ValidationException;
 import ir.maktab.q1.util.validation.AccountValidation;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
