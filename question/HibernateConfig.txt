@@ -1,0 +1,12 @@
+We can implement Hibernate Configurations without a cfg.xml file,by importing java.util.Properties and assigning the
+values for each property, these properties are all present in the xml file such as:
+hibernate.connection.url
+dialect
+hbm2ddl.auto
+show_sql
+We assign the desired values to these properties, make a new Configuration and add these properties to it, and then we
+have to add the annotated classes we have defined as @Entity in our model. by this call a new SessionFactory is created
+and can be used to open Sessions in the program.
+The code for the above explanations is available in q1.model.repository.DBConfig
+Thanks to Hibernate! Happy Programming!
+
