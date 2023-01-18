@@ -32,7 +32,7 @@ public class RepositoryImpl<T extends Account> implements IRepository<T> {
     @Override
     public List<T> findAll() {
         Session session = sessionFactory.openSession();
-        List allAccounts = session.createQuery("From Account ").list();
+        List<T> allAccounts = session.createQuery("From Account ").list();
         session.close();
         return allAccounts;
     }

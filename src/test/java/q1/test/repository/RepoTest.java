@@ -3,8 +3,7 @@ package q1.test.repository;
 import ir.maktab.q1.model.entity.*;
 import ir.maktab.q1.model.repository.IRepository;
 import ir.maktab.q1.model.repository.impl.RepositoryImpl;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -13,6 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RepoTest {
     private static IRepository repository;
     private static final Account[] accounts = new Account[5];
@@ -36,11 +36,13 @@ public class RepoTest {
 
     @ParameterizedTest
     @MethodSource(value = "accountData")
+    @Order(1)
     void testSave(Account account) {
         repository.save(account);
     }
 
     @Test
+    @Order(2)
     void testFindById() {
         for (int i = 0; i < accounts.length; i++) {
             Account foundAccount = repository.findById(i + 1);
@@ -49,13 +51,15 @@ public class RepoTest {
     }
 
     @Test
+    @Order(3)
     void testFindAll() {
         List all = repository.findAll();
         System.err.println(all);
-        assertEquals(4, all.size());
+        assertEquals(5, all.size());
     }
 
     @Test
+    @Order(4)
     void testUpdate() {
         repository.update(1, 1000);
         Account account = repository.findById(1);
@@ -63,6 +67,7 @@ public class RepoTest {
     }
 
     @Test
+    @Order(5)
     void testDelete() {
         repository.delete(2);
         Account delAccount = repository.findById(2);

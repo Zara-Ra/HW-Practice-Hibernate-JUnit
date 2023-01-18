@@ -23,13 +23,15 @@ public abstract class Account {
     @EqualsAndHashCode.Exclude
     int Id;
     String accountNumber;
+    @Column(length = 16) //todo this will cause the table to check it too
     String creditCardNumber; //todo validate 16 digit
-    LocalDate openingDate;
+    LocalDate openingDate;//todo use java.util.Date and the @Temporal
     double credit;
     int cvv2;
     LocalDate expiryDate;
 
-    public Account(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, LocalDate expiryDate) {
+    //todo abstract class constructor should be protected
+    protected Account(String accountNumber, String creditCardNumber, LocalDate openingDate, double credit, LocalDate expiryDate) {
         this.accountNumber = accountNumber;
         this.creditCardNumber = creditCardNumber;
         this.openingDate = openingDate;
